@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-white overflow-x-hidden;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(6 182 212 / 0.3) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: rgb(6 182 212 / 0.3);
+    border-radius: 20px;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, -100px) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes neural-draw {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.neural-network {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.neural-line {
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(6 182 212 / 0.5), transparent);
+  animation: neural-draw 8s infinite;
+  transform-origin: center;
+}
+
+.neural-line::before,
+.neural-line::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgb(6 182 212);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgb(6 182 212);
+}
+
+.neural-line::before {
+  left: 0;
+  top: -1.5px;
+}
+
+.neural-line::after {
+  right: 0;
+  top: -1.5px;
+}
+
+.floating-particles {
+  position: absolute;
+  inset: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgb(6 182 212);
+  border-radius: 50%;
+  animation: particle-float 10s infinite;
+  box-shadow: 0 0 5px rgb(6 182 212);
+}
+
+.robot-icon {
+  animation: float 6s ease-in-out infinite;
+}
+
+.hologram-ring {
+  border: 2px solid rgb(6 182 212 / 0.3);
+  border-radius: 50%;
+  animation: expand 3s ease-in-out infinite;
+}
+
+.scanning-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(6 182 212), transparent);
+  animation: scan 4s ease-in-out infinite;
+  box-shadow: 0 0 20px rgb(6 182 212);
+}
+
+.scanning-line-modal {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(6 182 212), transparent);
+  animation: scan 5s ease-in-out infinite;
+  box-shadow: 0 0 20px rgb(6 182 212);
+}
+
+.process-card {
+  animation: fade-in 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.process-glow {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(6 182 212), transparent);
+  transition: width 0.5s ease;
+}
+
+.process-card:hover .process-glow {
+  width: 100%;
+}
+
+.feature-card,
+.service-card,
+.stat-card,
+.why-card {
+  animation: fade-in 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.card-glow,
+.service-glow,
+.stat-glow,
+.why-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(6 182 212), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.feature-card:hover .card-glow,
+.service-card:hover .service-glow,
+.stat-card:hover .stat-glow,
+.why-card:hover .why-glow {
+  opacity: 1;
+}
+
+.founder-image-container {
+  animation: float 8s ease-in-out infinite;
+}
+
+.hologram-overlay {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgb(6 182 212 / 0.03) 2px,
+    rgb(6 182 212 / 0.03) 4px
+  );
+  animation: scan 8s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.modal-scale {
+  animation: scale-up 0.3s ease-out;
+}
+
+.faq-item {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.faq-answer-open {
+  max-height: 500px;
+  opacity: 1;
+}
