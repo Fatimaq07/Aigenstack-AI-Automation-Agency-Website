@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img
-                src="./src/logo (2).png"
+                src="./src/logo.png"
                 alt="logo"
                 className="w-16 h-12 object-contain"
               />
