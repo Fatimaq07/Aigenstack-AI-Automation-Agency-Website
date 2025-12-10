@@ -27,11 +27,8 @@ export default function Navbar({ onStartProcess }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('hero')}>
-<<<<<<< HEAD
             <img src="./src/logo.png" alt="logo" className="w-17 h-12 object-contain" />
-=======
-            <img src="./src/logo (2).png" alt="logo" className="w-17 h-12 object-contain" />
->>>>>>> 36c53e9d5470ce71b6582c9aa92098d8a4e2eae9
+
 
             <span>
               AigenStack
