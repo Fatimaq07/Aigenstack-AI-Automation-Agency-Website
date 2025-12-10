@@ -1,4 +1,5 @@
 import { Cpu, Mail } from "lucide-react";
+import logo from "../logo.png";  // <-- FIXED
 
 export default function Footer() {
   return (
@@ -10,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img
-                src="./src/logo.png"
+                src={logo}
                 alt="logo"
                 className="w-16 h-12 object-contain"
               />
