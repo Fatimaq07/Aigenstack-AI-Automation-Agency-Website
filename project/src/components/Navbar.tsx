@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-// import { Cpu } from 'lucide-react';
-import logo from "./logo.png"; // ← FIX: Correct Vite import
+import { Cpu } from 'lucide-react';
+import logo from "./logo.png"; // FIXED LOGO IMPORT
 
 interface NavbarProps {
   onStartProcess: () => void;
@@ -27,17 +27,13 @@ export default function Navbar({ onStartProcess }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('hero')}>
 
-            
-            {/* FIXED LOGO (no conflict, correct import) */}
+          <div
+            className="flex items-center space-x-3 cursor-pointer"
+            onClick={() => scrollToSection('hero')}
+          >
             <img src={logo} alt="logo" className="w-17 h-12 object-contain" />
-            <img src="./src/logo.png" alt="logo" className="w-17 h-12 object-contain" />
-
-
-            <span>
-              AigenStack
-            </span>
+            <span>AigenStack</span>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -73,6 +69,7 @@ export default function Navbar({ onStartProcess }: NavbarProps) {
           >
             Get Started
           </button>
+
         </div>
       </div>
     </nav>
